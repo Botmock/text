@@ -32,10 +32,10 @@
     "singleQuote": false,
     "printWidth": 80
   },
-  "bugs": "https://github.com/Botmock/utils/issues",
+  "bugs": "https://github.com/Botmock/text/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Botmock/utils.git"
+    "url": "git+https://github.com/Botmock/text.git"
   },
   "license": "MIT",
   "devDependencies": {
