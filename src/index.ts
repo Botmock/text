@@ -30,7 +30,6 @@ export function wrapEntitiesWithChar(text: string, leftReplacement: string): str
     const index = parseInt(i, 10);
     if (result[index] === BOTMOCK_ENTITY_CHAR) {
       const replacement = numReplacements % 2 === 0 ? left : right.repeat(leftReplacement.length);
-      console.log(replacement);
       result = result.replace(BOTMOCK_ENTITY_CHAR, replacement);
       numReplacements += 1;
     }
