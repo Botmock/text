@@ -1,16 +1,16 @@
 export { Utterance } from "./types";
 
 /**
- * Wraps all occurances of entities in text within char
+ * Wraps all occurances of entities in text within leftReplacement
  * @param text string
- * @param char string
+ * @param leftReplacement string
  * @returns string
  */
-export function wrapEntitiesWithChar(text: string, char: string): string {
+export function wrapEntitiesWithChar(text: string, leftReplacement: string): string {
   const BOTMOCK_ENTITY_CHAR = "%";
-  const left: string = char;
+  const left: string = leftReplacement;
   let right: string;
-  switch (left) {
+  switch (left.charAt(0)) {
     case "{":
       right = "}";
       break;
@@ -29,7 +29,7 @@ export function wrapEntitiesWithChar(text: string, char: string): string {
     const index = parseInt(i, 10);
     if (result[index] === BOTMOCK_ENTITY_CHAR) {
       const replacement = numReplacements % 2 === 0 ? left : right;
-      result = result.substr(0, index) + replacement + result.substr(index + 1);
+      result = result.replace(BOTMOCK_ENTITY_CHAR, replacement);
       numReplacements += 1;
     }
   }
