@@ -25,10 +25,12 @@ export function wrapEntitiesWithChar(text: string, leftReplacement: string): str
   }
   let result: string = text;
   let numReplacements: number = 0;
-  for (const i of Object.keys([...result.split("")])) {
+  const indicesInResult = Object.keys([...result.split(""), ...new Array(leftReplacement.length * 2)]);
+  for (const i of indicesInResult) {
     const index = parseInt(i, 10);
     if (result[index] === BOTMOCK_ENTITY_CHAR) {
-      const replacement = numReplacements % 2 === 0 ? left : right;
+      const replacement = numReplacements % 2 === 0 ? left : right.repeat(leftReplacement.length);
+      console.log(replacement);
       result = result.replace(BOTMOCK_ENTITY_CHAR, replacement);
       numReplacements += 1;
     }
